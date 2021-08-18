@@ -18,6 +18,9 @@ public class SmartWatchProductPage extends BasePage {
     @FindBy(xpath = "//a[@href='javascript:;']//span[@class='vi-atw-txt']")
     private WebElement addToWatchListButton;
 
+
+
+
     public SmartWatchProductPage(WebDriver driver) {
         super(driver);
     }

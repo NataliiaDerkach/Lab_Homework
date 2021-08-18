@@ -42,4 +42,8 @@ public class PageFactoryManager {
     public SmartWatchProductPage getSmartWatchProductPage(){
         return new SmartWatchProductPage(driver);
     }
+
+    public CaptchaPage getCaptchaPage(){
+        return new  CaptchaPage(driver);
+    }
 }

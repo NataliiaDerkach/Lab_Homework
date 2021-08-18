@@ -1,12 +1,13 @@
 package stepdefinitions;
 
-import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import manager.PageFactoryManager;
+import org.junit.After;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,6 +44,7 @@ public class DefinitionSteps {
     CartPaymentsPage cartPaymentsPage;
     PageFactoryManager pageFactoryManager;
     SmartWatchProductPage smartWatchProductPage;
+    CaptchaPage captchaPage;
 
     @Before
     public void testsSetUp() {
@@ -58,6 +60,7 @@ public class DefinitionSteps {
         productPage = pageFactoryManager.getProductPage();
         sofasShoppByColorGrayPage = pageFactoryManager.getSofasShoppByColorGrayPage();
         smartWatchProductPage = pageFactoryManager.getSmartWatchProductPage();
+        captchaPage = pageFactoryManager.getCaptchaPage();
     }
 
 
@@ -143,7 +146,7 @@ public class DefinitionSteps {
 
     @And("click on chosen product button")
     public void clickOnChosenProductButton() {
-        sofasShoppByColorGrayPage.clickTheLeatherArmchairGray();
+        sofasShoppByColorGrayPage.clickTheFirstProductFromList();
         productPage.waitForPageLoadComplete(DEFAULT_TIMEOUT_TO_WAIT);
     }
 
@@ -269,10 +272,9 @@ public class DefinitionSteps {
         smartWatchProductPage.clickOnAddToWatchListButton();
     }
 
-    @Then("And user get opening the registration window with create an account message")
-    public void andUserGetOpeningTheRegistrationWindowWithCreateAnAccountMessage() {
-        createAnAccountPage.waitForPageLoadComplete(DEFAULT_TIMEOUT_TO_WAIT);
-        Assert.assertTrue(EXPECTED_MESSAGE_CREATE_AN_ACCOUNT.equals(createAnAccountPage.getCreateAnAccountLink()));
+    @Then("And user get {string}")
+    public void andUserGetCaptchaMessage(String keyword) {
+        Assert.assertTrue(captchaPage.captchaMessage().contains(keyword));
     }
 
     @And("user click on shipTo button")
@@ -299,5 +301,7 @@ public class DefinitionSteps {
         homePage.waitForAjaxToComplete(DEFAULT_TIMEOUT_TO_WAIT);
         Assert.assertTrue(homePage.isVisibleFlagShipToUkraine());
     }
+
+
 }
 

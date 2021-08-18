@@ -60,11 +60,11 @@ Feature: Tests
     And user click on logo button
     And user come back on product page
     And click on add to Watchlist button
-    Then And user get opening the registration window with create an account message
+    Then And user get '<captchaMessage>'
 
     Examples:
-      | homePage              | amountOfProduct |
-      | https://www.ebay.com/ | -1              |
+      | homePage              | amountOfProduct | captchaMessage                     |
+      | https://www.ebay.com/ | -1              | Please verify yourself to continue |
 
   Scenario Outline: Check shipping to Ukraine
     Given user opens '<homePage>' page
@@ -72,7 +72,6 @@ Feature: Tests
     And click on country list button
     And user choose Ukraine country
     Then user check that Ukraine flag is visibility
-
 
     Examples:
       | homePage              |

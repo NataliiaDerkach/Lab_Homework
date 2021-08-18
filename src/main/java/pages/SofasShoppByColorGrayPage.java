@@ -6,14 +6,14 @@ import org.openqa.selenium.support.FindBy;
 
 public class SofasShoppByColorGrayPage extends BasePage {
 
-    @FindBy(xpath = "//div[@class='s-item__info clearfix']//a[@href='https://www.ebay.com/itm/254990747823?hash=item3b5ea208af:g:lcoAAOSwEbxgfXh6']")
-    private WebElement leatherArmchairGray;
+    @FindBy(xpath = "(//ul[contains(@class,'b-list__items_nofooter')]//li)[1]")
+    private WebElement firstProductFromList;
 
     public SofasShoppByColorGrayPage(WebDriver driver) {
         super(driver);
     }
 
-    public void clickTheLeatherArmchairGray() {
-        leatherArmchairGray.click();
+    public void clickTheFirstProductFromList() {
+        firstProductFromList.click();
     }
 }
