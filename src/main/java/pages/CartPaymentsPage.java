@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 public class CartPaymentsPage extends BasePage{
 
     @FindBy(xpath = "//i[@id='gh-cart-n']")
-    private WebElement textAmountOfProductInCart;
+    private WebElement amountOfProductInCart;
 
     @FindBy(xpath = "//button[@data-test-id='cart-remove-item']")
     private WebElement removeProductFromCart;
@@ -19,12 +19,13 @@ public class CartPaymentsPage extends BasePage{
         super(driver);
     }
 
-    public String getTextAmountOfProductInCart(){
-        return textAmountOfProductInCart.getText();
+    public String getAmountOfProductInCart(){
+        waitVisibilityOfElement(30, amountOfProductInCart);
+        return amountOfProductInCart.getText();
     }
 
     public WebElement getElementTextAmountOfProductInCart(){
-        return textAmountOfProductInCart;
+        return amountOfProductInCart;
     }
 
     public void clickOnButtonRemoveProductFromCart(){

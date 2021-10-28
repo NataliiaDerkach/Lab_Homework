@@ -6,9 +6,14 @@ import pages.*;
 public class PageFactoryManager {
 
     WebDriver driver;
+    private static final String URL = "https://www.ebay.com/";
 
     public PageFactoryManager(WebDriver driver) {
         this.driver = driver;
+    }
+
+    public void openHomePage() {
+        driver.get(URL);
     }
 
     public HomePage getHomePage() {
@@ -19,31 +24,15 @@ public class PageFactoryManager {
         return new CreateAnAccountPage(driver);
     }
 
-    public HomeGardenPage getHomeGardenPage(){
-        return new HomeGardenPage(driver);
-    }
-
-    public SofasArmchairsCouchesPage getSofasArmchairsCouchesPage(){
-        return new SofasArmchairsCouchesPage(driver);
-    }
-
-    public SofasShoppByColorGrayPage getSofasShoppByColorGrayPage(){
-        return new SofasShoppByColorGrayPage(driver);
-    }
-
-    public ProductPage getProductPage(){
+    public ProductPage getProductPage() {
         return new ProductPage(driver);
     }
 
-    public CartPaymentsPage getCartPaymentsPage(){
+    public CartPaymentsPage getCartPaymentsPage() {
         return new CartPaymentsPage(driver);
     }
 
-    public SmartWatchProductPage getSmartWatchProductPage(){
-        return new SmartWatchProductPage(driver);
-    }
-
-    public CaptchaPage getCaptchaPage(){
-        return new  CaptchaPage(driver);
+    public ShopByCategoryPage getShopByCategoryPage() {
+        return new ShopByCategoryPage(driver);
     }
 }

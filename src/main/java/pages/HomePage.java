@@ -33,6 +33,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//img[@src='https://i.ebayimg.com/thumbs/images/g/AHAAAOSwdpRfsl4-/s-l225.webp']")
     private WebElement smartWatchesCategory;
 
+    @FindBy(xpath = "//li[@class='hl-popular-destinations-element']/a[contains(@href,'www.ebay.com/b/Cell-Phones-Smart-Watches-Accessories')]")
+    private WebElement smartphonesCategories;
+
     @FindBy(xpath = "//button[@class='gh-eb-li-a gh-icon']")
     private WebElement shipToButton;
 
@@ -48,20 +51,16 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//*[@id='gh-shipto-click']/div/button/i")
     private WebElement ukraine;
 
+    @FindBy(xpath = "//div[contains(@class,'carousel__viewport')]//li")
+    private WebElement someProduct;
+
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
-    public void openHomePage(String url) {
-        driver.get(url);
-    }
-
     public void clickOnRegisterButton() {
         registerButton.click();
-    }
-
-    public void clickOnHomeAndGardenCategoryButton() {
-        homeAndGardenCategoryButton.click();
     }
 
     public void clickOnSearchButton() {
@@ -74,24 +73,8 @@ public class HomePage extends BasePage {
         searchField.sendKeys(searchText);
     }
 
-    public WebElement getElementErrorMessageAboutIncorrectInputSearch() {
-        return errorMessageAboutIncorrectInputSearch;
-    }
-
     public String getErrorMessageAboutIncorrectInputSearch() {
         return errorMessageAboutIncorrectInputSearch.getText();
-    }
-
-    public String getMessageAboutNoExactMatchesFound() {
-        return messageAboutNoExactMatchesFound.getText();
-    }
-
-    public void clickOnShopByCategoryButton() {
-        shopByCategoryButton.click();
-    }
-
-    public void clickOnCategoryOfDropListCellPhonesAccessories() {
-        elementOfDropListCellPhonesAccessories.click();
     }
 
     public void clickOnSmartWatchesCategory() {
@@ -124,6 +107,14 @@ public class HomePage extends BasePage {
 
     public WebElement getElementCountryUkraine() {
         return countryUkraine;
+    }
+
+    public void clickOnSmartphonesCategories(){
+        smartphonesCategories.click();
+    }
+
+    public void getSomeProductOnHomePage(){
+        someProduct.click();
     }
 
 }

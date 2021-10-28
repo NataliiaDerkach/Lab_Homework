@@ -33,9 +33,6 @@ public class CreateAnAccountPage extends BasePage {
     @FindBy(xpath = "//a[@id='create-account-link']")
     private WebElement createAnAccountLink;
 
-    @FindBy(xpath = "//a[@href='https://www.ebay.com/']")
-    private WebElement logoButton;
-
 
     public CreateAnAccountPage(WebDriver driver) {
         super(driver);
@@ -71,14 +68,6 @@ public class CreateAnAccountPage extends BasePage {
     public void enterTextToPasswordField(final String searchText) {
         clickOnPasswordField.clear();
         clickOnPasswordField.sendKeys(searchText);
-    }
-
-    public String getCreateAnAccountLink() {
-        return createAnAccountLink.getText();
-    }
-
-    public void clickOnLogoButton() {
-        logoButton.click();
     }
 
 }

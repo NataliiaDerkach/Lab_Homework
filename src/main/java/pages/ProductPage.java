@@ -8,17 +8,32 @@ import java.util.List;
 
 public class ProductPage extends BasePage {
 
+    @FindBy(xpath = "//h2[text()='Buy It Now']")
+    private WebElement buyItNowButton;
+
     @FindBy(xpath = "//a[@id='isCartBtn_btn']")
     private WebElement productAddToCart;
 
     @FindBy(xpath = "//h3[contains(text(),'Sony Xperia')]")
     private List<WebElement> sonyXperiaList;
 
-    @FindBy(xpath = "//img[@src='https://i.ebayimg.com/thumbs/images/g/7-UAAOSw7t9d8avq/s-l300.webp']")
-    private WebElement smartWatchProduct;
+    @FindBy(xpath = "(//ul[contains(@class,'b-list__items_nofooter')]/li)[2]")
+    private WebElement smartWatchApple;
+
+    @FindBy(xpath = "//input[@class='qtyInput']")
+    private WebElement quantityField;
+
+    @FindBy(xpath = "//div[@id='w1-15-_errMsg']")
+    private WebElement messageNeedToAddAmountOfOneProduct;
 
     public ProductPage(WebDriver driver) {
         super(driver);
+    }
+
+    public void enterInQuantityField(final String qty){
+        waitForPageLoadComplete(20);
+        quantityField.clear();
+        quantityField.sendKeys(qty);
     }
 
     public void clickOnAddToCartProductButton() {
@@ -26,11 +41,18 @@ public class ProductPage extends BasePage {
     }
 
     public List<WebElement> getTextThatSonyXperiaList() {
-        List<WebElement> elementSonyXperiaList = sonyXperiaList;
-        return elementSonyXperiaList;
+        return sonyXperiaList;
     }
 
-    public void clickOnSmartWatchProduct() {
-        smartWatchProduct.click();
+    public void clickOnSmartWatchApple() {
+        smartWatchApple.click();
+    }
+
+    public void clickBuyItNowButton() {
+        buyItNowButton.click();
+    }
+
+    public String getMessageNeedToAddAmountOfOneProduct() {
+        return messageNeedToAddAmountOfOneProduct.getText();
     }
 }
