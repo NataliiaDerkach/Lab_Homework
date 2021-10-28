@@ -30,7 +30,7 @@ public class ProductPage extends BasePage {
         super(driver);
     }
 
-    public void enterInQuantityField(final String qty){
+    public void enterInQuantityField(final String qty) {
         waitForPageLoadComplete(20);
         quantityField.clear();
         quantityField.sendKeys(qty);

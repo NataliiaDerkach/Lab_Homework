@@ -9,9 +9,6 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[@href='https://reg.ebay.com/reg/PartialReg?ru=https%3A%2F%2Fwww.ebay.com%2F']")
     private WebElement registerButton;
 
-    @FindBy(xpath = "//li[@data-currenttabindex='3']//a[@href='https://www.ebay.com/b/Home-Garden/11700/bn_1853126']")
-    private WebElement homeAndGardenCategoryButton;
-
     @FindBy(xpath = "//input[@aria-label='Search for anything']")
     private WebElement searchField;
 
@@ -23,12 +20,6 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//h3[@class='srp-save-null-search__heading']")
     private WebElement messageAboutNoExactMatchesFound;
-
-    @FindBy(xpath = "//button[@id='gh-shop-a']")
-    private WebElement shopByCategoryButton;
-
-    @FindBy(xpath = "//a[@href='https://www.ebay.com/b/Cell-Phones-Smart-Watches-Accessories/15032/bn_1865441']")
-    private WebElement elementOfDropListCellPhonesAccessories;
 
     @FindBy(xpath = "//img[@src='https://i.ebayimg.com/thumbs/images/g/AHAAAOSwdpRfsl4-/s-l225.webp']")
     private WebElement smartWatchesCategory;

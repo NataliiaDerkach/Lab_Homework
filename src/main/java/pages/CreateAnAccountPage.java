@@ -30,9 +30,6 @@ public class CreateAnAccountPage extends BasePage {
     @FindBy(xpath = "//div[@class='ppaContainer']")
     private WebElement clickThatGetErrorMessagePassword;
 
-    @FindBy(xpath = "//a[@id='create-account-link']")
-    private WebElement createAnAccountLink;
-
 
     public CreateAnAccountPage(WebDriver driver) {
         super(driver);
